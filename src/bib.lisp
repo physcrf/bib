@@ -22,24 +22,38 @@
     list))
 
 (defun bibitem-type (bibitem)
-  (scan-to-strings "@[a-zA-Z]+" bibitem))
+  (nth-value 0 (scan-to-strings "@[a-zA-Z]+" bibitem)))
 
 (defun bibitem-id (bibitem)
   (let* ((id (scan-to-strings "{\\s*\\S+\\s*," bibitem))
-	 (length (strlen id)))
-    (trim (substr id 1 (1- length)))))
+	 (length (strlen id))
+	 (id (trim (substr id 1 (1- length)))))
+    (regex-replace "^@" id "")))
     
 (defun bibitem-fields (bibitem)
   (let* ((start (nth-value 1 (scan "{\\s*\\S+\\s*," bibitem)))
 	 (end (loop for i from (1- (strlen bibitem)) downto start
 		    if (char= (char bibitem i) #\})
 		      return i))
-	 (fields (mapcar #'trim (split "," (substr bibitem start end))))
+	 (fields (mapcar #'trim (remove-if #'blankp (split "," (substr bibitem start end)))))
 	 list)
-    (loop for field in fields
-	  for (key value) = (split "=" field)
-	  do (appendf list (list (trim key)
-				 (trim
-				  (regex-replace-all "[\\n\\r]\\s+" value "\\n")))))
+    (flet ((clean (value)
+	     (let* ((value (regex-replace "^\\s*{" value ""))
+		    (value (regex-replace "}\\s*$" value ""))
+		    (value (regex-replace "[\\n\\r]\\s*" value "\\n")))
+	       value)))
+      (loop for field in fields
+	    for (key value) = (split "=" field)
+	    do (appendf list (list (trim key)
+				   (clean value)))))
     list))
     
+(defun parse-bibitem (bibitem)
+  (let (list)
+    (appendf list (list "TYPE" (bibitem-type bibitem)))
+    (appendf list (list "ID" (bibitem-id bibitem)))
+    (appendf list (bibitem-fields bibitem))
+  list))
+	     
+(defun parse-bibfile (bibfile)
+  (mapcar #'parse-bibitem (split-bibfile bibfile)))
