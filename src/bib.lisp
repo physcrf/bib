@@ -21,25 +21,25 @@
 		 (setf start end)))
     list))
 
-(defun split-bibitem (item)
-  (let* ((start 0)
-	 (end (position #\{ item :test #'eql :start start))
-	 (class (substr item start end))
-	 (start (loop for i from (1+ end)
-		      if (not (or (eql (aref item i) #\space)
-				  (eql (aref item i) #\tab)))
-			return i))
-	 (end (position #\, item :test #'eql :start start))
-	 (key (substr item start end))
-	 (start (loop for i from (1+ end)
-		      if (not (eql (aref item i) #\newline))
-			return i))
-	 (end (1- (strlen item)))
-	 (field (substr item start end)))
-    (list class key field)))
-			       
-(defun parse-bibfile (bibfile)
-  (mapcar #'split-bibitem (split-bibfile bibfile)))
+(defun bibitem-type (bibitem)
+  (scan-to-strings "@[a-zA-Z]+" bibitem))
 
-(defun find-bibitem (key bibitems)
-  (find key bibitems :key #'second :test #'equal))
+(defun bibitem-id (bibitem)
+  (let* ((id (scan-to-strings "{\\s*\\S+\\s*," bibitem))
+	 (length (strlen id)))
+    (trim (substr id 1 (1- length)))))
+    
+(defun bibitem-fields (bibitem)
+  (let* ((start (nth-value 1 (scan "{\\s*\\S+\\s*," bibitem)))
+	 (end (loop for i from (1- (strlen bibitem)) downto start
+		    if (char= (char bibitem i) #\})
+		      return i))
+	 (fields (mapcar #'trim (split "," (substr bibitem start end))))
+	 list)
+    (loop for field in fields
+	  for (key value) = (split "=" field)
+	  do (appendf list (list (trim key)
+				 (trim
+				  (regex-replace-all "[\\n\\r]\\s+" value "\\n")))))
+    list))
+    
