@@ -10,7 +10,7 @@
   :components ((:module "src"
 		:serial t
 		:components ((:file "package")
-			     (:file "bib")
-			     (:file "aux")))
-			     
-	       ))
+			     )
+			
+			))
+  )
