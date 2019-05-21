@@ -1,7 +1,7 @@
 (in-package :bib)
 
 ;; http://www.rci.rutgers.edu/~longhu/ChemJournalAbbreviation_Hu.htm
-(defparameter *abbrev-list-a*
+(defparameter *abbrev-list*
   '(("Accounts of Chemical Research"		"Acc. Chem. Res.")
     ("ACH - Models in Chemistry"		"ACH - ModelsA Chem.")
     ("ACI Materials Journal"			"ACI Mater. J.")
@@ -64,6 +64,7 @@
     ("Aerosol Science and Technology"		"Aerosol Sci. Technol.")
     ("AIChE Journal"				"AlChE J.")
     ("AIChE Symposium Series"			"AlChE Symp. Ser.")
+    ("AIP Advances" 				"AIP Adv.")
     ("American Ceramic Society Bulletin"	"Am. Ceram. Soc. Bull.")
     ("American Industrial Hygiene Association Journal" "Am. Ind. Hyg. Assoc. J.")
     ("American Journal of Respiratory Cell and Molecular Biology" "Am. J. Respir. Cell Mol. Biol.")
@@ -105,45 +106,45 @@
     ("Appita Journal"				"Appita J.")
     ("Applied Biochemistry and Biotechnology"	"Appl. Biochem. Biotechnol.")
     ("Applied Catalysis A"			"Appl. Catal., A")
-Appl. Catal., B	Applied Catalysis B
-Appl. Compos. Mater.	Applied Composite Materials
-Appl. Environ. Microbiol.	Applied and Environment Microbiology
-Appl. Geochem.	Applied Geochemistry
-Appl. Magn. Reson.	Applied Magnetic Resonance
-Appl. Microbiol. Biotechnol.	Applied Microbiology and Biotechnology
-Appl. Opt.	Applied Optics
-Appl. Organomet. Chem.	Applied Organometallic Chemistry
-Appl. Phys. A	Applied Physics A
-Appl. Phys. B	Applied Physics B
-Appl. Phys. Lett.	Applied Physics Letters
-Appl. Radiat. Isot.	Applied Radiation and Isotopes
-Appl. Sci. Res.	Applied Scientific Research
-Appl. Spectrosc.	Applied Spectroscopy
-Appl. Supercond.	Applied Superconductivity
-Appl. Surf. Sci.	Applied Surface Science
-Appl. Therm. Eng.	Applied Thermal Engineering
-Aquat. Toxicol.	Aquatic Toxicology
-Arch. Biochem. Biophys.	Archives of Biochemistry and Biophysics
-Arch. Environ. Contam. Toxicol.	Archives of Environment Contamination and Toxicology
-Arch. Environ. Health	Archives of Environment Health
-Arch. Insect Biochem. Physiol.	Archives of Insect Biochemistry and Physiology
-Arch. Microbiol.	Archives of Microbiology
-Arch. Pharm.	Archiv der Pharmazie
-Arch. Pharmacal Res.	Archives of Pharmacal Research
-Arch. Physiol. Biochem.	Archives of Physiology and Biochemistry
-Arch. Toxicol.	Archives of Toxicology
-Arch. Virol	Archives of Virology
-Artif. Cells, Blood Substitues, Immobilization Biotechnol.	Artificial Cells Blood Substitutes and Immobilization Biotechnology
-Arzneim.-Forsch.	Arzneimittel-Forschung/Drug Research
-Asian J. Chem.	Asian Journal of Chemistry
-Asian J. Spectro.	Asian Journal of Spectroscopy
-ASTM Spec. Tech. Publ.	ASTM Specical Technical Publication
-Astron. Astrophys.	Astronomy and Astrophysics
-Astron. J.	Astronomy Journal
-Astrophys J.	Astrophysics Journal
-At. Data Nucl. Data Tables	Atomic Data and Nuclear Data Tables
-At. Energ.	Atomic Energy
-At. Spectrosc.	Atomic Spectroscopy
-Atmos. Environ.	Atmospheric Environment
-Atomization Sprays	Atomization and Sprays
-Aust. J. Chem.	Australian Journal of Chemistry
+    ("Applied Catalysis B"			"Appl. Catal., B")
+    ("Applied Composite Materials"		"Appl. Compos. Mater.")
+    ("Applied and Environment Microbiology"	"Appl. Environ. Microbiol.")
+    ("Applied Geochemistry"			"Appl. Geochem.")
+    ("Applied Magnetic Resonance"		"Appl. Magn. Reson.")
+    ("Applied Microbiology and Biotechnology"	"Appl. Microbiol. Biotechnol.")
+    ("Applied Optics"				"Appl. Opt.")
+    ("Applied Organometallic Chemistry"		"Appl. Organomet. Chem.")
+    ("Applied Physics A"			"Appl. Phys. A")
+    ("Applied Physics B"			"Appl. Phys. B")
+    ("Applied Physics Letters"			"Appl. Phys. Lett.")
+    ("Applied Radiation and Isotopes"		"Appl. Radiat. Isot.")
+    ("Applied Scientific Research"		"Appl. Sci. Res.")
+    ("Applied Spectroscopy"			"Appl. Spectrosc.")
+    ("Applied Superconductivity"		"Appl. Supercond.")
+    ("Applied Surface Science"			"Appl. Surf. Sci.")
+    ("Applied Thermal Engineering"		"Appl. Therm. Eng.")
+    ("Aquatic Toxicology"			"Aquat. Toxicol.")
+    ("Archives of Biochemistry and Biophysics"	"Arch. Biochem. Biophys.")
+    ("Archives of Environment Contamination and Toxicology" "Arch. Environ. Contam. Toxicol.")
+    ("Archives of Environment Health"		"Arch. Environ. Health")
+    ("Archives of Insect Biochemistry and Physiology" "Arch. Insect Biochem. Physiol.")
+    ("Archives of Microbiology"			"Arch. Microbiol.")
+    ("Archiv der Pharmazie"			"Arch. Pharm.")
+    ("Archives of Pharmacal Research"		"Arch. Pharmacal Res.")
+    ("Archives of Physiology and Biochemistry"	"Arch. Physiol. Biochem.")
+    ("Archives of Toxicology"			"Arch. Toxicol.")
+    ("Archives of Virology"			"Arch. Virol.")
+    ("Artificial Cells Blood Substitutes and Immobilization Biotechnology" "Artif. Cells, Blood Substitues, Immobilization Biotechnol.")
+    ("Arzneimittel-Forschung/Drug Research"	"Arzneim.-Forsch.")
+    ("Asian Journal of Chemistry"		"Asian J. Chem.")
+    ("Asian Journal of Spectroscopy"		"Asian J. Spectro.")
+    ("ASTM Specical Technical Publication"	"ASTM Spec. Tech. Publ.")
+    ("Astronomy and Astrophysics"		"Astron. Astrophys.")
+    ("Astronomy Journal"			"Astron. J.")
+    ("Astrophysics Journal"			"Astrophys J.")
+    ("Atomic Data and Nuclear Data Tables"	"At. Data Nucl. Data Tables")
+    ("Atomic Energy"				"At. Energ.")
+    ("Atomic Spectroscopy"			"At. Spectrosc.")
+    ("Atmospheric Environment"			"Atmos. Environ.")
+    ("Atomization and Sprays"			"Atomization Sprays")
+    ("Australian Journal of Chemistry"		"Aust. J. Chem.")))

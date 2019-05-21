@@ -1,0 +1,16 @@
+(in-package :bib)
+
+(appendf *abbrev-list*
+  '(("Laboratory Automation and Information Management" "Lab. Autom. Inf. Manage.")
+    ("Laboratory Investigation"			       	"Lab. Invest.")
+    ("Laboratory Robotics and Automation"      		"Lab. Rob. Autom.")
+    ("Laser Chemistry"		       			"Laser Chem.")
+    ("LC-GC The Magazine of Separation Science"	       	"LC-GC")
+    ("Letters in Applied Microbiology"	       		"Lett. Appl. Microbiol.")
+    ("Letters in Peptide Science"      			"Lett. Pept. Sci.")
+    ("Liebigs Annalen der Chemie"		       	"Liebigs Ann. Chem.")
+    ("Liebigs Annalen - Recueil"	       		"Liebigs Ann. Recl.")
+    ("Life Sciences"		       			"Life Sci.")
+    ("Liquid Crystals"					"Liq. Cryst.")
+    ("Lubrication Engineering"				"Lubr. Eng.")
+    ("Lubrication Science"				"Lubr. Sci.")))
