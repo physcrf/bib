@@ -22,7 +22,7 @@
     list))
 
 (defun bibitem-type (bibitem)
-  (nth-value 0 (scan-to-strings "@[a-zA-Z]+" bibitem)))
+  (erase-string (scan-to-strings "@[a-zA-Z]+" bibitem) 0 1))
 
 (defun bibitem-id (bibitem)
   (let* ((id (scan-to-strings "{\\s*\\S+\\s*," bibitem))
@@ -40,7 +40,8 @@
     (flet ((clean (value)
 	     (let* ((value (regex-replace "^\\s*{" value ""))
 		    (value (regex-replace "}\\s*$" value ""))
-		    (value (regex-replace "[\\n\\r]\\s*" value "\\n")))
+		    (value (regex-replace "[\\n\\r]\\s*" value "\\n"))
+		    (value (trim value)))
 	       value)))
       (loop for field in fields
 	    for (key value) = (split "=" field)
@@ -57,3 +58,15 @@
 	     
 (defun parse-bibfile (bibfile)
   (mapcar #'parse-bibitem (split-bibfile bibfile)))
+
+(defun format-bibitem (bibitem)
+  (let ((stream (make-string-output-stream)))
+    (format stream "@~A{" (gref bibitem "TYPE"))
+    (format stream "~A,~%" (gref bibitem "ID"))
+    (loop for (key value) on (cddddr bibitem) by #'cddr
+	  do (format stream "~2T~A~14T=" key)
+	  do (format stream (strcat "~20T{"
+				    (regex-replace-all "\\\\n" value "~%~21T")
+				    "},~%")))
+    (format stream "}~%")
+    (get-output-stream-string stream)))
