@@ -44,6 +44,7 @@
     ("International Journal of Mineral Processing"	"Int. J. Miner. Process.")
     ("International Journal of Modern Physics B"	"Int. J. Mod Phys B")
     ("International Journal of Multiphase Flow"		"Int. J. Multiphase Flow")
+    ("International Journal of Nuclear Energy"		"Int. J. Nucl. Energy")
     ("International Journal for Numerical Methods in Fluids" "Int. J. Numer. Methods Fluids")
     ("International Journal of Oncology"		"Int. J. Oncol.")
     ("International Journal of Peptide and Protein Research" "Int. J. Pept. Protein Res.")

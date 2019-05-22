@@ -3,7 +3,8 @@
 (appendf *abbrev-list*
   '(("Handbook of Experimental Pharmacology" 	"Handb. Exp. Pharmacol.")
     ("Hazardous Waste and Hazardous Materials"  "Hazard. Waste Hazard. Mater.")
-    ("HeIvetica Chimica Acta"			"HeIv. Chim. Acta")
+    ("Helvetica Chimica Acta"			"Helv. Chim. Acta")
+    ("Helvetica Physica Acta"			"Helv. Phys. Acta")
     ("Health Physics"				"Health Phys.")
     ("Heat and Mass Transfer"			"Heat Mass Transfer.")
     ("Heat Treatment of Metals"			"Heat Treat. Met.")

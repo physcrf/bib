@@ -8,6 +8,7 @@
     ("Zeitschrift fur Naturforschung A"				"Z. Naturforsch., A")
     ("Zeitschrift fur Naturforschung B"				"Z. Naturforsch., B")
     ("Zeitschrift fur Naturforschung C"				"Z. Naturforsch., C")
+    ("Zeitschrift fur Physik"					"Z. Phys.")
     ("Zeitschrift fur Physik A"					"Z. Phys. A")
     ("Zeitschrift fur Physik B" 				"Z. Phys. B")
     ("Zeitschrift fur Physik C"					"Z. Phys. C")

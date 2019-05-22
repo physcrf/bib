@@ -28,6 +28,7 @@
     ("New Comprehensive Biochemistry"		"New Compr. Biochem.")
     ("New Diamond and Frontier Carbon Technology" "New Diamond Front. Carbon Technol.")
     ("New Journal of Chemistry"			"New J. Chem.")
+    ("New Journal of Physics"			"New J. Phys.")
     ("New Polymeric Materials"			"New Polym. Mat.")
     ("NMR in Biomedicine"			"NMR Biomed.")
     ("Nuclear Applications" 			"Nucl. Appl.")

@@ -1,7 +1,8 @@
 (in-package :bib)
 
 (appendf *abbrev-list*
-  '(("Dental Materials"				"Dent. Mater.")
+  '(("Dalton Transactions"			"Dalton Trans.")
+    ("Dental Materials"				"Dent. Mater.")
     ("Diamond Films and Technology"		"Diamond Films Technol.")
     ("Diamond and Related Materials"		"Diamond Relat. Mater.")
     ("Doklady Akademii Nauk"			"Dokl. Akad. Nauk")

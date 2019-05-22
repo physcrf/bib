@@ -29,18 +29,36 @@
 	 (length (strlen id))
 	 (id (trim (substr id 1 (1- length)))))
     (regex-replace "^@" id "")))
-    
+
+(defun split-fields (fields)
+  (let ((start 0)
+	(length (strlen fields))
+	bracket
+	list)
+    (loop for i from 0 below length
+	  if (char= (char fields i) #\{)
+	    do (push #\{ bracket)
+	  if (char= (char fields i) #\})
+	    do (pop bracket)
+	  if (or (and (char= (char fields i) #\,)
+		      (null bracket))
+		 (= i (1- length)))
+	    do (let ((str (substr fields start i)))
+		 (setf start (1+ i))
+		 (unless (blankp str)
+		   (appendf list (list (trim str))))))
+    list))
+
 (defun bibitem-fields (bibitem)
   (let* ((start (nth-value 1 (scan "{\\s*\\S+\\s*," bibitem)))
-	 (end (loop for i from (1- (strlen bibitem)) downto start
-		    if (char= (char bibitem i) #\})
-		      return i))
-	 (fields (mapcar #'trim (remove-if #'blankp (split "," (substr bibitem start end)))))
+	 (end (position #\} bibitem :from-end t :test #'char=))
+	 (fields (substr bibitem start end))
+	 (fields (split-fields fields))
 	 list)
     (flet ((clean (value)
 	     (let* ((value (regex-replace "^\\s*{" value ""))
 		    (value (regex-replace "}\\s*$" value ""))
-		    (value (regex-replace "[\\n\\r]\\s*" value "\\n"))
+		    (value (regex-replace-all "[\\n\\r]\\s*" value "\\n"))
 		    (value (trim value)))
 	       value)))
       (loop for field in fields
