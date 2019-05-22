@@ -19,7 +19,7 @@
 				    return (1+ j)))))
 		 (push (substr str start end) list)
 		 (setf start end)))
-    list))
+    (reverse list)))
 
 (defun bibitem-type (bibitem)
   (erase-string (scan-to-strings "@[a-zA-Z]+" bibitem) 0 1))
