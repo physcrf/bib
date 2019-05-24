@@ -31,3 +31,14 @@
 (defun add-journals (journals)
   (loop for journal in journals
 	do (add-journal journal)))
+
+(defun format-bibitem-abbrev (bibitem)
+  (let* ((item (copy-list bibitem))
+	 (name (getf+ item "journal" :test #'equalp))
+	 (journal (find-journal name)))
+    (if journal
+	(progn (setf (getf+ item "journal" :test #'equalp)
+		     (second journal))
+	       (format-bibitem item))
+	nil)))
+    

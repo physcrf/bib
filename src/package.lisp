@@ -1,6 +1,6 @@
 (defpackage :bib
   (:use :cl :utility :string :os :cl-ppcre :gref)
-  (:export :parse-bibfile :format-bibitem
+  (:export :parse-bibfile :format-bibitem :format-bibitem-abbrev
 	   :parse-auxfile
 	   :find-journal :search-journal
 	   :list-journals :add-journal :add-journals
