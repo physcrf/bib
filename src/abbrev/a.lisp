@@ -2,7 +2,7 @@
 
 ;; http://www.rci.rutgers.edu/~longhu/ChemJournalAbbreviation_Hu.htm
 (defparameter *abbrev-list*
-  '(("ACH - Models in Chemistry"		"ACH - ModelsA Chem.")
+  '(("ACH - Models in Chemistry"		"ACH - Models Chem.")
     ("ACI Materials Journal"			"ACI Mater. J.")
     ("ACS Symposium Series"			"ACS Symp. Ser.")
     ("Acta Biochimica Polonica"			"Acta Biochim. Pol.")
