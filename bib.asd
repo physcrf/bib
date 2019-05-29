@@ -6,7 +6,7 @@
 	       :string   ;; https://github.com/physcrf/string
 	       :os	 ;; https://github.com/physcrf/os
 	       :cl-ppcre ;; https://edicl.github.io/cl-ppcre/
-	       :gref	 ;; https://github.com/physcrf/gref
+	       :grefs	 ;; https://github.com/physcrf/grefs
 	       )
   :components ((:module "src"
 		:serial t
